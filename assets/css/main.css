@@ -174,21 +174,20 @@ h6 {
     padding: 15px 0;
     transition: all 0.5s;
     z-index: 997;
-    box-shadow: 0 5px 0 grey;
 }
 
 .header .logo {
     line-height: 1;
+     /* Scales the height to 50% */
+    transform: scale(0.6);
+      /* Keeps the original width */
+    transform-origin: center;
+    margin: -40px 0 -60px 0;
+    margin-right: 8px;
 }
 
 .header .logo img {
-    margin: -40px 0 -60px 0;
-    margin-right: 8px;
-    transform: scale(0.7);
-    /* Scales the height to 50% */
-    width: auto;
-    /* Keeps the original width */
-    transform-origin: center;
+    width: auto;   
 }
 
 .header .logo h1 {
@@ -230,10 +229,42 @@ h6 {
 }
 
 .scrolled .header {
-    box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
+  background-color: var(--background-color);
+    box-shadow: 0px 0 18px rgba(255, 255, 255, 0.1);
 }
 
+/*--------------------------------------------------------------
+# Sticky Social-icon
+--------------------------------------------------------------*/
 
+.icon-bar-sticky {
+    color: var(--default-color);
+    background-color: var(--nav-background-color);
+  position: fixed;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.icon-bar-sticky a {
+  display: block;
+  text-align: center;
+  padding: 15px;
+  transition: all 0.3s ease;
+  font-size: 20px;
+}
+
+.icon-bar-sticky a i:hover {
+    color: color-mix(in srgb, var(--default-color), transparent 50%);
+}
+
+@media (max-width: 1200px) {
+    .icon-bar-sticky {
+        top: 60%;
+    }
+}
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
@@ -681,13 +712,17 @@ section,
 --------------------------------------------------------------*/
 
 .hero {
+    margin-top: -50px;   
     width: 100%;
     min-height: 100vh;
-    /* height: 100vh; */
     position: relative;
     padding: 5px 0 80px 0;
     display: flex;
     align-items: center;
+}
+
+.hero .container{
+    margin-left: 90px;
 }
 
 .hero h1 {
@@ -703,6 +738,7 @@ section,
     font-size: 22px;
     font-weight: 400;
 }
+
 
 .hero .btn-get-started {
     font-family: var(--heading-font);
@@ -725,7 +761,18 @@ section,
     animation: up-down 2s ease-in-out infinite alternate-reverse both;
 }
 
+ .hero-img img{
+  width: 100%;
+  height: auto;
+}
+
 @media (max-width: 640px) {
+    .hero{
+        text-align: center;
+    }
+    .hero .container{
+        margin-left: 5px;
+    }
     .hero h1 {
         font-size: 28px;
         line-height: 36px;
@@ -738,6 +785,7 @@ section,
     .hero .btn-get-started,
     .hero .btn-watch-video {
         font-size: 13px;
+        margin-left: 30%;
     }
 }
 
@@ -1755,9 +1803,4 @@ section,
     font-size: 20px;
     margin-right: 8px;
     color: var(--accent-color);
-}
-
-.nav-box-active {
-  box-shadow: 0 5px 0 rgba(118, 199, 12, 0.938);
-    /* background-color: #ffffffbb; */
 }

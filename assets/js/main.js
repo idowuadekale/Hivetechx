@@ -63,12 +63,10 @@
     /**
      * Scroll top button
      */
-    let navBox = document.querySelector('#header');
     let scrollTop = document.querySelector('.scroll-top');
 
     function toggleScrollTop() {
         if (scrollTop) {
-            window.scrollY > 100 ? navBox.classList.add('nav-box-active') : navBox.classList.remove('nav-box-active');
             window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
         }
     }
