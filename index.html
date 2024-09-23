@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>THE HIVETX - Tech Community</title>
+    <title>Countdown to October 1st</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -12,102 +12,88 @@
     <link href="assets/img/logo/HIVETX_20240806_233430_0000.png" rel="icon">
     <link href="assets/img/logo/HIVETX_20240806_233430_0000.png" rel="apple-touch-icon">
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com" rel="preconnect">
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+    <style>
+        /* Body styling */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+            /* Black background */
+            color: #FFD700;
+            /* Yellow text */
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
 
-    <!-- Vendor CSS Online -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.3.0/css/glightbox.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css" rel="stylesheet">
+        /* Countdown container styling */
+        .countdown {
+            text-align: center;
+        }
 
-    <!-- Main CSS File -->
-    <link href="assets/css/main.css" rel="stylesheet">
+        /* Heading style */
+        .countdown h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+
+        /* Time style */
+        .time {
+            font-size: 3em;
+            margin: 10px 0;
+            letter-spacing: 3px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .countdown h1 {
+                font-size: 2em;
+            }
+
+            .time {
+                font-size: 1.5em;
+            }
+        }
+    </style>
 </head>
 
-<body class="index-page">
+<body>
+    <div class="countdown">
+        <h1>Countdown to October 1st</h1>
+        <div class="time" id="countdown"></div>
+    </div>
 
-    <header id="header" class="header d-flex align-items-center sticky-top nav-box">
-        <div class="container-fluid container-xl position-relative d-flex align-items-center ">
+    <script>
+        // Set the countdown target date for October 1st
+        const countdownDate = new Date("October 1, 2024 00:00:00").getTime();
 
-            <a href="index.html" class="logo d-flex align-items-center me-auto">
-                <!-- Uncomment the line below if you also wish to use an image logo -->
-                <img src="assets/img/logo/Hivetx_Logo.png" alt="">
-                <!-- <h1 class="sitename">Hivetx</h1> -->
-            </a>
+        // Update the countdown every second
+        const interval = setInterval(function () {
+            // Get the current time
+            const now = new Date().getTime();
 
-            <nav id="navmenu" class="navmenu">
-                <ul>
-                    <li><a href="#hero" class="active">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Sponsors</a></li>
-                </ul>
-                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-            </nav>
+            // Calculate the difference between now and the countdown date
+            const timeLeft = countdownDate - now;
 
-            <a class="btn-getstarted" title="Join Hive whatsapp community" href="https://chat.whatsapp.com/EeK9qUhkGzDHovt7A55Cfy" target="_blank">Join Community</a>
-           
-        </div> 
-    </header>
+            // Calculate days, hours, minutes, and seconds
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-    <main class="main">
-       
-        <!-- Hero Section -->
-        <section id="hero" class="hero section">          
+            // Display the result in the element with id="countdown"
+            document.getElementById("countdown").innerHTML =
+                days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
 
-            <div class="container">
-                <div class="row gy-4">
-                    <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
-                        <h1>Pioneering Africa's Global Tech & Web3 Innovation Hub</h1>
-                        <p>Empowering Africa's Web3 & Tech Community: Connect, Learn, Trade, and Innovate Together</p>
-                        <div class="d-flex">
-                            <a href="#about" class="btn-get-started">Learn More</a>
-                            <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 order-1 order-lg-2 hero-img">
-                        <img src="assets/img/hub.png" class="img-fluid animated" alt="">
-                    </div>
-                </div>   
-            </div>
-
-                <!-- Sticky Social-icon -->
-                <div class="icon-bar-sticky">
-                    <a href="#"><i class="bi bi-twitter-x"></i></a>
-                    <a title="Join Hive whatsapp community" href="https://chat.whatsapp.com/EeK9qUhkGzDHovt7A55Cfy" target="_blank"><i class="bi bi-whatsapp"></i></a>
-                    <a href="#"><i class="bi bi-instagram"></i></a>
-                    <a href="#"><i class="bi bi-linkedin"></i></a>              
-                    <a href="#"><i class="bi bi-facebook"></i></a>   
-                </div>
-
-        </section>
-        <!-- /Hero Section -->
-
-    </main>
-
-    <!-- Scroll Top -->
-    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-    <!-- Preloader -->
-    <div id="preloader"></div>
-
-
-    <!-- Vendor JS Online -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.3.0/js/glightbox.min.jss"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs/dist/purecounter_vanilla.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/5.0.0/imagesloaded.pkgd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
-
-    <!-- Main JS File -->
-    <script src="assets/js/main.js"></script>
+            // If the countdown is over, display a message
+            if (timeLeft < 0) {
+                clearInterval(interval);
+                document.getElementById("countdown").innerHTML = "Countdown is over!";
+            }
+        }, 1000);
+    </script>
 </body>
+
 
 </html>
