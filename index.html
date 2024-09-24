@@ -55,6 +55,29 @@
                 font-size: 1.5em;
             }
         }
+
+        /* Style for the animated button */
+        .animated-btn {
+            background-color: yellow;
+            border: none;
+            color: black;
+            padding: 15px 30px;
+            font-size: 18px;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 1px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .animated-btn:hover {
+            background-color: black;
+            color: white;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+            transform: scale(1.05);
+        }
     </style>
 </head>
 
@@ -62,6 +85,11 @@
     <div class="countdown">
         <h1>Countdown to October 1st</h1>
         <div class="time" id="countdown"></div>
+        <!-- Add Animated Button -->
+        <div class="text-center mt-5">
+            <h2>Join Our Community</h2>
+            <a href="https://tinyurl.com/hivetx" class="animated-btn">Get Started</a>
+        </div>
     </div>
 
     <script>
